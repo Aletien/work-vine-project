@@ -10,7 +10,7 @@
         <div class="breadcrumb-areas">
             <h1>Our Interior Shop</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li class="active">Store</li>
             </ul>
         </div>
@@ -573,15 +573,6 @@
 </div>
 <!-- Featured car end -->
 
-
-<!-- Full Page Search -->
-<div id="full-page-search">
-    <button type="button" class="close">×</button>
-    <form action="https://storage.googleapis.com/theme-vessel/carhouse/index.html#" class="search-header">
-        <input type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-sm button-theme">Search</button>
-    </form>
-</div>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script  src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
