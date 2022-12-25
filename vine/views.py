@@ -11,8 +11,11 @@ def home(request):
 
 
 def about(request):
-
-    return render(request, 'vine/about.html')
+    teams = Team.objects.all()
+    context = {
+        'teams': teams,
+    }
+    return render(request, 'vine/about.html', context)
 
 
 def services(request):
