@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'vine.apps.VineConfig',
+    'store.apps.StoreConfig',
 ]
 
 MIDDLEWARE = [
