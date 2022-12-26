@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 class TeamAdmin(admin.ModelAdmin):
     def thumbnail(self, object):
-        return format_html(f'<img scr="{object.photo.url}" width="40" style="border-radius: 50px;" />')
+        return format_html('<img src="{}" width="40" style="border-radius: 50px;" />'.format(object.photo.url))
     
     thumbnail.short_description = 'photo'
 

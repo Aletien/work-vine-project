@@ -1,10 +1,16 @@
 from django.shortcuts import render
+
+from store.models import Store
 from .models import Team
 
 def home(request):
     teams = Team.objects.all()
+    featured = Store.objects.order_by('-created_date').filter(is_featured=True)
+    all_stores = Store.objects.order_by('-created_date')
     data = {
         'teams' : teams,
+        'featured' : featured,
+        'all_stores' : all_stores,
     }
     return render(request, 'vine/home.html', data)
 

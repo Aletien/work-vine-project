@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+from ckeditor.fields import RichTextField
+from multiselectfield import MultiSelectField
 
 class Store(models.Model):
     
@@ -39,15 +41,29 @@ class Store(models.Model):
         ('plastic', 'plastic'),
     )
 
+    condition_choices = (
+        ('New', 'New'),
+        ('Used', 'Used'),
+    )
+
     title = models.CharField(max_length=255)
-    village = models.CharField(choices=village_choices, max_length=100)
-    city = models.CharField(max_length=100)
+    village = models.CharField(choices=village_choices, max_length=255)
+    city = models.CharField(max_length=100, default='')
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     color = models.CharField(max_length=100)
+    condition = models.CharField(choices=condition_choices, max_length=100)
     body_style = models.CharField(max_length=100)
     year = models.IntegerField(('year'),choices=year_choice)
-    description = models.TextField(max_length=500)
+    description = RichTextField()
     price = models.IntegerField()
-    features = models.CharField(choices=features_choices, max_length=255)
+    features = MultiSelectField(choices=features_choices, max_length=255)
     number_seats = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.title

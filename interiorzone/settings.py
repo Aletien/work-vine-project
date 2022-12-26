@@ -28,6 +28,10 @@ INSTALLED_APPS = [
 
     'vine.apps.VineConfig',
     'store.apps.StoreConfig',
+
+    'ckeditor',
+
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
