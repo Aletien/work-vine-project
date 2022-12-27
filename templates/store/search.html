@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<!-- Banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Search Results</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Search</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Banner end -->
+
+    <!-- Search box 3 start -->
+<div class="search-box-3 sb-7 bg-active">
+    <div class="container">
+        <div class="search-area-inner">
+            <div class="search-contents">
+                <form method="GET" action="{% url 'search' %}">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="condition">
+                                    <option disabled="disabled" selected="selected">Condition</option>
+                                    {% for condition in condition_search %}
+                                        <option value="{{condition}}">{{condition}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="body_style">
+                                    <option disabled="disabled" selected="selected">Body Style</option>
+                                    {% for body_style in body_style_search %}
+                                        <option value="{{body_style}}">{{body_style}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="city">
+                                    <option disabled="disabled" selected="selected">City</option>
+                                    {% for city in city_search %}
+                                        <option value="{{city}}">{{city}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="year">
+                                    <option disabled="disabled" selected="selected">Year</option>
+                                    {% for year in year_search %}
+                                        <option value="{{year}}">{{year}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="color">
+                                    <option disabled="disabled" selected="selected">Select Color Of Furniture</option>
+                                    {% for color in color_search %}
+                                        <option value="{{color}}">{{color}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <div class="range-slider">
+                                    <div data-min="0" data-max="7000000" data-unit="UGX" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <button class="btn btn-block button-theme btn-md">
+                                    <i class="fa fa-search"></i>Find
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured-car content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Here's your <span>search collection!</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="row">
+            
+            {% for furniture in furnitures %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-box">
+                        <div class="car-thumbnail">
+                            <a href="{% url 'store_detail' furniture.id %}" class="car-img">
+                                <div class="tag">For Sale</div>
+                                <img class="d-block w-100" src="{{ furniture.photo.url }}" alt="furniture" style="min-height: 262px; max-height: 262px;">
+                                <div class="facilities-list clearfix">
+                                    <ul>
+                                        <li>
+                                            <span><i class="flaticon-way"></i></span>{{ furniture.number_seats }}
+                                        </li>
+                                        <li>
+                                            <span><i class="flaticon-calendar-1"></i></span>{{ furniture.year }}
+                                        </li>
+                                        <li>
+                                            <span><i class="flaticon-manual-transmission"></i></span>{{ furniture.color }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <div class="carbox-overlap-wrapper">
+                                <div class="overlap-box">
+                                    <div class="overlap-btns-area">
+                                        <a class="overlap-btn" data-toggle="modal" data-target="#carOverviewModal">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </a>
+                                        <div class="car-magnify-gallery">
+                                            <a href="{{ furniture.photo.url }}" class="overlap-btn" data-sub-html="<h4>Lamborghini Huracán</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy....</p>">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="{{ furniture.photo.url }}" alt="hidden-img">
+                                            </a>
+                                            {% if furniture.photo_1 %}
+                                                <a href="{{ furniture.photo_1.url }}" class="hidden" data-sub-html="<h4>Lexus GS Red Car</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy....</p>">
+                                                    <img class="hidden" src="{{ furniture.photo_1.url }}" alt="hidden-img">
+                                                </a>
+                                            {% endif %}
+                                            {% if furniture.photo_2 %}
+                                                <a href="{{ furniture.photo_2.url }}" class="hidden" data-sub-html="<h4>2015 Porsche Cayenne</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy....</p>">
+                                                    <img class="hidden" src="{{ furniture.photo_2.url }}" alt="hidden-img">
+                                                </a>
+                                            {% endif %}
+                                            {% if furniture.photo_3 %}
+                                                <a href="{{ furniture.photo_3.url }}" class="hidden" data-sub-html="<h4>Toyota Corolla</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy....</p>">
+                                                    <img class="hidden" src="{{ furniture.photo_3.url }}" alt="hidden-img">
+                                                </a>
+                                            {% endif %}
+                                            {% if furniture.photo_4 %}
+                                                <a href="{{ furniture.photo_4.url }}" class="hidden" data-sub-html="<h4>Toyota Prius Specs</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy....</p>">
+                                                    <img class="hidden" src="{{ furniture.photo_4.url }}" alt="hidden-img">
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="{% url 'store_detail' furniture.id %}">{{ furniture.title }}</a>
+                            </h1>
+                            <div class="location">
+                                <a href="{% url 'store_detail' furniture.id %}">
+                                    <i class="flaticon-pin"></i>{{ furniture.village }}. {{ furniture.city }},
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer clearfix">
+                            <div class="pull-left ratings days">
+                                <p class="cartype">{{ furniture.body_style }}</p>
+                            </div>
+                            <div class="pull-right">
+                                <p class="price">UGX {{ furniture.price | intcomma }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+                
+        </div>
+    </div>
+</div>
+<!-- Featured car end -->
+
+{% endblock %}

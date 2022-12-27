@@ -36,57 +36,53 @@
         </div>
         <!-- Search box 3 start -->
         <div class="search-box-4 sb-8">
-            <form action="#" method="">
+            <form action="{% url 'search' %}" method="">
                 <div class="form-group">
                     <input type="text" name="keyword" placeholder="Search by name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-brand">
-                        <option selected="true" disabled="disabled">Brand</option>
-                        <option>Audi</option>
-                        <option>BMW</option>
-                        <option>Honda</option>
-                        <option>Nissan</option>
+                    <select class="form-control search-fields" name="condition">
+                        <option selected="true" disabled="disabled">Condition</option>
+                        {% for condition in condition_search %}
+                            <option value="{{condition}}">{{condition}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-make">
-                        <option selected="true" disabled="disabled">Model</option>
-                        <option>BMW</option>
-                        <option>Honda</option>
-                        <option>Lamborghini Huracán</option>
-                        <option>Sports Car</option>
+                    <select class="form-control search-fields" name="body_style">
+                        <option selected="true" disabled="disabled">Body Style</option>
+                        {% for body_style in body_style_search %}
+                            <option value="{{body_style}}">{{body_style}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-location">
-                        <option selected="true" disabled="disabled">Location</option>
-                        <option>United States</option>
-                        <option>United Kingdom</option>
+                    <select class="form-control search-fields" name="city">
+                        <option selected="true" disabled="disabled">City</option>
+                        {% for city in city_search %}
+                            <option value="{{city}}">{{city}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-year">
+                    <select class="form-control search-fields" name="year">
                         <option selected="true" disabled="disabled">Year</option>
-                        <option>2016</option>
-                        <option>2017</option>
-                        <option>2018</option>
-                        <option>2019</option>
+                        {% for year in year_search %}
+                            <option value="{{year}}">{{year}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control search-fields" name="select-type">
-                        <option selected="true" disabled="disabled">Select Type Of Furniture</option>
-                        <option>Sedan</option>
-                        <option>Sports</option>
-                        <option>Hatchback</option>
-                        <option>Pickup Truck</option>
-                        <option>SUV</option>
+                    <select class="form-control search-fields" name="color">
+                        <option selected="true" disabled="disabled">Select Color Of Furniture</option>
+                        {% for color in color_search %}
+                            <option value="{{color}}">{{color}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="range-slider clearfix">
                                 <label>Price</label>
-                                <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div data-min="0" data-max="7000000"  data-min-name="min_price" data-max-name="max_price" data-unit="UGX" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                 <div class="clearfix"></div>
                             </div>
                 <div class="form-group">
@@ -173,10 +169,10 @@
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="car-details.html">{{feature.title}}</a>
+                                    <a href="{% url 'store_detail' feature.id %}">{{feature.title}}</a>
                                 </h1>
                                 <div class="location">
-                                    <a href="car-details.html">
+                                    <a href="{% url 'store_detail' feature.id %}">
                                         <i class="flaticon-pin"></i>{{feature.village}} . {{feature.city}},
                                     </a>
                                 </div>
@@ -271,10 +267,10 @@
                     </div>
                     <div class="detail">
                         <h1 class="title">
-                            <a href="car-details.html">{{all_store.title}}</a>
+                            <a href="{% url 'store_detail' all_store.id %}">{{all_store.title}}</a>
                         </h1>
                         <div class="location">
-                            <a href="car-details.html">
+                            <a href="{% url 'store_detail' all_store.id %}">
                                 <i class="flaticon-pin"></i>{{all_store.village}}. {{all_store.city}},
                             </a>
                         </div>

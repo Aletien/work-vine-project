@@ -32,7 +32,7 @@ class Store(models.Model):
     )
 
     year_choice = []
-    for r in range(2022, (datetime.now().year+1)):
+    for r in range(2020, (datetime.now().year+1)):
         year_choice.append((r,r))
 
     features_choices = (
@@ -44,6 +44,7 @@ class Store(models.Model):
     condition_choices = (
         ('New', 'New'),
         ('Used', 'Used'),
+        ('Damaged', 'Damaged'),
     )
 
     title = models.CharField(max_length=255)
