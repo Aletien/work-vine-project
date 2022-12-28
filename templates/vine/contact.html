@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %} | Contact Us{% endblock  %}
 
 {% block content %}
 
@@ -26,7 +26,9 @@
             <h1>Contact <span>Us</span></h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
         </div>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data">
+            {% include 'includes/messages.html' %}
+            {% csrf_token %}
             <div class="row">
                 <div class="col-lg-7">
                     <div class="row">
@@ -70,7 +72,7 @@
                             </div>
                             <div class="detail">
                                 <h5>Phone:</h5>
-                                <p><a href="#">07xx xxx xxx</a></p>
+                                <p><a href="#">+256 777 774 260</a></p>
                             </div>
                         </div>
                         <div class="ci-box">
@@ -116,7 +118,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="modal-title" id="carOverviewModalLabel">
-                        <h4>Explore Your Dream Car</h4>
+                        <h4>Explore Your Dream Interior</h4>
                         <h5><i class="flaticon-pin"></i> 123 Kathal St. Tampa City,</h5>
                     </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -188,73 +190,6 @@
         </div>
     </div>
 </div>
-
-<script  src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
-<!-- Custom javascript -->
-<script  src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
-
-<script  src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE' %}"></script>
-<script>
-    function LoadMap(propertes) {
-        var defaultLat = 40.7110411;
-        var defaultLng = -74.0110326;
-        var mapOptions = {
-            center: new google.maps.LatLng(defaultLat, defaultLng),
-            zoom: 15,
-            scrollwheel: false,
-            styles: [
-                {
-                    featureType: "administrative",
-                    elementType: "labels",
-                    stylers: [
-                        {visibility: "off"}
-                    ]
-                },
-                {
-                    featureType: "water",
-                    elementType: "labels",
-                    stylers: [
-                        {visibility: "off"}
-                    ]
-                },
-                {
-                    featureType: 'poi.business',
-                    stylers: [{visibility: 'off'}]
-                },
-                {
-                    featureType: 'transit',
-                    elementType: 'labels.icon',
-                    stylers: [{visibility: 'off'}]
-                },
-            ]
-        };
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        var infoWindow = new google.maps.InfoWindow();
-        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
-
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map
-        });
-        (function (marker) {
-            google.maps.event.addListener(marker, "click", function (e) {
-                infoWindow.setContent("" +
-                    "<div class='map-properties contact-map-content'>" +
-                    "<div class='map-content'>" +
-                    "<p class='address'>20-21 Kathal St. Tampa City, FL</p>" +
-                    "<ul class='map-properties-list'> " +
-                    "<li><i class='flaticon-phone'></i>  +0477 8556 552</li> " +
-                    "<li><i class='flaticon-phone'></i>  info@themevessel.com</li> " +
-                    "<li><a href='index.html'><i class='fa fa-globe'></i>  http://www.example.com</li></a> " +
-                    "</ul>" +
-                    "</div>" +
-                    "</div>");
-                infoWindow.open(map, marker);
-            });
-        })(marker);
-    }
-    LoadMap();
-</script>
 
 
 {% endblock %}
