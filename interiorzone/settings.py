@@ -21,6 +21,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_honeypot',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
