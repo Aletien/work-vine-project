@@ -261,6 +261,7 @@ button:focus {
     text-transform: uppercase;
 }
 
+
 .bomd {
     padding: 13px 26px;
     letter-spacing: 1px;
@@ -8097,6 +8098,74 @@ table {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
+}
+/* Chat popup */
+.open-top-left{
+	position: fixed; 
+	margin-left: 30px; 
+	margin-top: 30px;
+	top: 0;
+	left: 0; 
+}
+
+.open-top-right{
+	position: fixed; 
+	margin-right: 30px; 
+	margin-top: 30px;
+	top: 0;
+	right: 0; 
+}
+
+.open-bottom-left{
+	position: fixed; 
+	margin-left: 30px; 
+	margin-bottom: 30px;
+	left: 0; 
+	bottom: 0;
+}
+
+.open-bottom-right{
+	position: fixed; 
+	margin-right: 30px; 
+	margin-bottom: 30px;
+	right: 0; 
+	bottom: 0; 
+}
+
+.form-top-left{
+	position: fixed; 
+	width: 18rem; 
+	margin-left: 30px; 
+	margin-top: 30px; 
+	top: 0; 
+	left: 0; 
+}
+
+.form-top-right{
+	position: fixed; 
+	width: 18rem; 
+	margin-right: 30px; 
+	margin-top: 30px; 
+	top: 0; 
+	right: 0; 
+}
+
+.form-bottom-left{
+	position: fixed; 
+	width: 18rem; 
+	margin-left: 30px; 
+	margin-bottom: 30px; 
+	bottom: 0; 
+	left: 0; 
+}
+
+.form-bottom-right{
+	position: fixed; 
+	width: 18rem; 
+	margin-right: 30px; 
+	margin-bottom: 30px; 
+	bottom: 0; 
+	right: 0; 
 }
 
 @media all and (min-width: 1200px) {

@@ -1,3 +1,4 @@
+
 $(function () {
 
     'use strict';
@@ -480,6 +481,29 @@ $(function () {
     }).trigger("resize");
 })(jQuery);
 
+
 setTimeout(function(){
     $('#message').fadeOut('slow');
 }, 5000)
+
+// chat popup
+
+$(document).ready(function() {
+
+	$('#open').click(function() {
+		$(this).addClass("d-none");
+		$('#form').removeClass("d-none");
+		});
+
+	$('#close').click(function() {
+		$('#open').removeClass("d-none");
+		$('#form').addClass("d-none");
+		});
+
+	$('#send').click(function() {
+		var msg = $("#messages").val()
+		if (msg != "") {
+			$(location).attr('href',' https://wa.me/256777774260?text='+msg);				
+		}
+		});
+	});

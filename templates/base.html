@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-submenu.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-select.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}">
@@ -28,7 +27,7 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="{% static 'css/skins/red.css' %}">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" >
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
@@ -51,7 +50,38 @@
 
 {% block content %}
     
+
+
+
+
 {% endblock content %}
+
+<!-- Chat popup -->>
+<div id="open" class="shadow-sm rounded-circle open-bottom-right"><img src="{% static 'img/whatsapp.png' %}" width="70"></div>
+
+<div id="form" class="card shadow-sm border-0 form-bottom-right d-none">
+    <div class="card-header bg-success text-white">
+        <span class='text-white'>Live Chat</span>
+        <button type="button" class="close" aria-label="Close">
+            <span id="close" class="float-right text-white cursor-pointer">&times;</span>
+        </button>
+    </div>
+    <div class="card-body bg-light pb-0">
+        <div class="form-group">
+            <div class="alert alert-info bg-white border-0 shadow-sm p-3">Hello, how can we help you?</div>
+        </div>
+    </div>
+    <div class="card-footer border-0 bg-white">
+        <div class="input-group flex-nowrap">
+            <textarea id="messages" class="form-control shadow-none" autofocus></textarea>
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-transparent border-0" id="send">Send</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- Full Page Search -->
 <div id="full-page-search">
@@ -84,6 +114,7 @@
 <script  src="{% static 'js/lightgallery-all.js' %}"></script>
 <script  src="{% static 'js/jnoty.js' %}"></script>
 <script  src="{% static 'js/app.js' %}"></script>
+
 
 
 </body>
