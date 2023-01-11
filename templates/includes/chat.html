@@ -1,0 +1,27 @@
+{% load static %}
+<!-- Chat popup -->>
+<div id="open" class="shadow-sm rounded-circle open-bottom-right"><img src="{% static 'img/whatsapp.png' %}" width="70"></div>
+
+<div id="form" class="card shadow-sm border-0 form-bottom-right d-none">
+    <div class="card-header bg-success text-white">
+        <span class='text-white'>Live Chat</span>
+        <button type="button" class="close" aria-label="Close">
+            <span id="close" class="float-right text-white cursor-pointer">&times;</span>
+        </button>
+    </div>
+    <div class="card-body bg-light pb-0">
+        <div class="form-group">
+            <div class="alert alert-info bg-white border-0 shadow-sm p-3">Hello, how can we help you?</div>
+        </div>
+    </div>
+    <div class="card-footer border-0 bg-white">
+        <div class="input-group flex-nowrap">
+            <textarea id="messages" class="form-control shadow-none" autofocus></textarea>
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-transparent border-0" id="send">Send</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
