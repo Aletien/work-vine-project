@@ -503,7 +503,7 @@ $(document).ready(function() {
 	$('#send').click(function() {
 		var msg = $("#messages").val()
 		if (msg != "") {
-			$(location).attr('href',' https://wa.me/256777774260?text='+msg);				
+			$(location).attr('href',' https://wa.me/256703796015?text='+msg);				
 		}
 		});
 	});

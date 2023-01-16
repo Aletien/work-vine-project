@@ -127,11 +127,11 @@
                             <div class="car-thumbnail">
                                 <a href="car-details.html" class="car-img">
                                     <div class="tag-2">Featured</div>
-                                    <div class="price-box">
+                                    <!--<div class="price-box">
                                         <span class="del"><del>UGX805.00</del></span>
                                         <br>
                                         <span>UGX {{feature.price | intcomma}}</span>
-                                    </div>
+                                    </div> -->
                                     <img class="d-block w-100" src="{{feature.photo.url}}" alt="Furniture" style="min-height: 262px; max-height: 262px;">
                                 </a>
                                 <div class="carbox-overlap-wrapper">
@@ -276,14 +276,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="footer clearfix">
+                    <!-- <div class="footer clearfix">
                         <div class="pull-left ratings days">
                             <p class="cartype">{{all_store.body_style}}</p>
                         </div>
                         <div class="pull-right">
                             <p class="price">UGX {{all_store.price | intcomma}}</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             {% endfor %}
