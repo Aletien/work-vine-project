@@ -4,7 +4,7 @@ from store.models import Store
 
 def store(request):
     furnitures = Store.objects.order_by('-created_date')
-    paginator = Paginator(furnitures, 4)
+    paginator = Paginator(furnitures, 6)
     page = request.GET.get('page')
     paged_furnitures = paginator.get_page(page)
     condition_search = Store.objects.values_list('condition', flat=True).distinct

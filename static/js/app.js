@@ -501,9 +501,9 @@ $(document).ready(function() {
 		});
 
 	$('#send').click(function() {
-		var msg = $("#message").val()
+		var msg = $("#messages").val()
 		if (msg != "") {
-			$(location).attr('href',' https://wa.me/6281388990520?text='+msg);				
+			$(location).attr('href',' https://wa.me/256703796015?text='+msg);				
 		}
 		});
 	});
