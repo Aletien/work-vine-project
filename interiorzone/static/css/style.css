@@ -8110,7 +8110,7 @@ table {
 
 .open-top-right{
 	position: fixed; 
-	margin-right: 30px; 
+	margin-left: 30px; 
 	margin-top: 30px;
 	top: 0;
 	right: 0; 
@@ -8126,7 +8126,7 @@ table {
 
 .open-bottom-right{
 	position: fixed; 
-	margin-right: 30px; 
+	margin-left: 30px; 
 	margin-bottom: 30px;
 	right: 0; 
 	bottom: 0; 
@@ -8144,7 +8144,7 @@ table {
 .form-top-right{
 	position: fixed; 
 	width: 18rem; 
-	margin-right: 30px; 
+	margin-left: 30px; 
 	margin-top: 30px; 
 	top: 0; 
 	right: 0; 
@@ -8162,7 +8162,7 @@ table {
 .form-bottom-right{
 	position: fixed; 
 	width: 18rem; 
-	margin-right: 30px; 
+	margin-left: 30px; 
 	margin-bottom: 30px; 
 	bottom: 0; 
 	right: 0; 
